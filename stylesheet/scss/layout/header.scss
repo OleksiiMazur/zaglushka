@@ -7,11 +7,82 @@
     position: relative;
     z-index: 10;
 
+    .on-desktop {
+        display: block;
+    }
+    .on-laptop {
+        display: none;
+    }
+    .on-mobile {
+        display: none;
+    }
+    .hamburger {
+        display: none;
+    }
+    .mobile-menu {
+        display: none;
+    }
+    .extra-menu-parent {
+        position: relative;
+        z-index: 10;
+
+        &:hover {
+            .extra-menu {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 0.3s ease, visibility 0s ease;
+            }
+            & > span {
+                color: $gold;
+            }
+        }
+    }
+    .extra-menu {
+        z-index: 10;
+        position: absolute;
+        display: block;
+        font-family: Montserrat;
+        font-weight: 500;
+        line-height: 46px;
+        font-size: 15px;
+        background-color: $black;
+        border-top: 1px solid $gold;
+        min-width: 178px;
+        top: 100%;
+        right: -10px;
+        padding: 21px 30px;
+        margin-bottom: 2px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s 0.3s ease, visibility 0s 0.6s ease;
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: calc(100% - 3px);
+            right: 13px;
+            width: 10px;
+            height: 9px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.4143 3.07015e-06L10.3286 4.91431H0.5L5.4143 3.07015e-06Z' fill='%23D3B75E'/%3E%3C/svg%3E");
+        }
+        li {
+            a {
+
+            }
+        }
+    }
+
     .main-header {
         height: 80px;
         padding: 14px 0;
         background-color: #fff;
 
+        .extra-menu-parent {
+            display: none;
+        }
         & > .container {
             display: flex;
             align-items: center;
@@ -20,13 +91,15 @@
             display: block;
             margin-right: 75px;
         }
+        .desktop-menu {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
         nav {
             margin-right: 55px;
 
-            .hamburger {
-                display: none;
-            }
-            .main-manu {
+            .main-menu {
                 display: flex;
 
                 li {
@@ -48,7 +121,7 @@
             }
         }
         .search-form {
-            margin-right: 55px;
+            margin-right: auto;
             max-width: 437px;
             width: 100%;
             height: 46px;
@@ -177,47 +250,6 @@
                 & > span {
                     cursor: context-menu;
                     user-select: none;
-                }
-                &:hover {
-                    & > ul {
-                        opacity: 1;
-                        visibility: visible;
-                        transition: opacity 0.3s ease, visibility 0s ease;
-                    }
-                    & > span {
-                        color: $gold;
-                    }
-                }
-                & > ul {
-                    position: absolute;
-                    background-color: $black;
-                    border-top: 1px solid $gold;
-                    min-width: 178px;
-                    top: 100%;
-                    right: -10px;
-                    padding: 21px 30px;
-                    margin-bottom: 2px;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: opacity 0.3s 0.3s ease, visibility 0s 0.6s ease;
-
-                    &:before {
-                        content: '';
-                        position: absolute;
-                        bottom: calc(100% - 3px);
-                        right: 13px;
-                        width: 10px;
-                        height: 9px;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-size: contain;
-                        background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.4143 3.07015e-06L10.3286 4.91431H0.5L5.4143 3.07015e-06Z' fill='%23D3B75E'/%3E%3C/svg%3E");
-                    }
-                    li {
-                        a {
-
-                        }
-                    }
                 }
             }
         }

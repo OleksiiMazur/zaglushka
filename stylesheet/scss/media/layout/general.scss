@@ -11,11 +11,27 @@
 
 @media screen and (max-width:1400px) {
     .container {
-        max-width: 728px;
+        max-width: calc(100% - 60px);
     }
 }
 
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width:1200px) {
+    body, html {
 
+        ::-webkit-scrollbar { /* chrome based */
+            width: 0px !important;  /* ширина scrollbar'a */
+            height: 0px !important;  /* ширина scrollbar'a */
+            background: transparent;  /* опционально */
+            -ms-overflow-style: none;
+            overflow: -moz-scrollbars-none;
+        }
+
+        -ms-overflow-style: none;  /* IE 10+ */
+        scrollbar-width: none; /* Firefox */
+        scrollbar-height: none; /* Firefox */
+    }
+    .container {
+        max-width: calc(100% - 40px);
+    }
 }
