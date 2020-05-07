@@ -61,5 +61,4 @@ $(document).ready(function () {
     bannerMenuToggle();
     mobileMenuToggle();
     bannerMenuResize();
-    $(window).on('resize', bannerMenuResize);
 });
