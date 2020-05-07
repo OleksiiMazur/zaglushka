@@ -1,16 +1,10 @@
 "use strict";
 
-function subheaderHtml () {
-    let desktopL = $(window).width() > 1700;
-    let desktopM = $(window).width() <= 1700 && $(window).width() > 1400;
-    let laptop = $(window).width() <= 1400 && $(window).width() > 1024;
-    let tab = $(window).width() <= 1024 && $(window).width() > 768;
-    let mobile = $(window).width() <= 768;
-
-    if (desktopL) {
-
-    } else if (desktopM) {
-
+function bannerMenuResize () {
+    if ($(window).width() > 1200) {
+        $('.banner-menu').addClass('opened');
+    } else {
+        $('.banner-menu').removeClass('opened');
     }
 }
 
@@ -23,8 +17,49 @@ function bannerMenuToggle () {
     });
 }
 
+function mobileMenuToggle () {
+    let menu = $('.main-menu-popup');
+    let hamburger = $('.hamburger--mobile');
+    let links = $('.main-menu-popup, .logo, .overlay');
+    let popupSearchIcon = $('.main-menu-popup .search-btn');
+    let headerSearchIcon = $('.search-btn--header');
+    let headerSearchWrap = $('.mobile-menu__search-wrap');
+    let headerSearch = $('.mobile-menu .search-form input');
+    let closeSearch = $('.search-form__close');
+
+    hamburger.on('click', function () {
+        menu.addClass('opened');
+    });
+    links.on('click', function () {
+        menu.removeClass('opened');
+    });
+    popupSearchIcon.on('click', function () {
+        menu.removeClass('opened');
+        headerSearchWrap.addClass('visible');
+        $('.logo').addClass('hidden');
+
+        setTimeout(function () {
+            headerSearch.focus();
+        }, 700);
+    });
+    headerSearchIcon.on('click', function () {
+        headerSearchWrap.addClass('visible');
+        $('.logo').addClass('hidden');
+
+        setTimeout(function () {
+            headerSearch.focus();
+        }, 100);
+    });
+    closeSearch.on('click', function () {
+        headerSearchWrap.removeClass('visible');
+        $('.logo').removeClass('hidden');
+    });
+}
+
 
 $(document).ready(function () {
     bannerMenuToggle();
-    // $(window).on('resize', subheaderHtml);
+    mobileMenuToggle();
+    bannerMenuResize();
+    $(window).on('resize', bannerMenuResize);
 });

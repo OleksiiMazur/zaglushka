@@ -99,9 +99,20 @@
         z-index: 100;
 
         .main-header {
+            position: relative;
+
             .logo {
                 position: relative;
                 z-index: 20;
+                max-width: 92px;
+                margin-right: auto;
+
+                img {
+                    max-width: 100%;
+                }
+                &.hidden {
+                    visibility: hidden;
+                }
             }
             .desktop-menu {
                 display: none;
@@ -109,6 +120,42 @@
             .mobile-menu {
                 z-index: 10;
                 display: flex;
+
+                &__search-wrap {
+                    display: none;
+                    align-items: center;
+                    z-index: 50;
+                    position: absolute;
+                    background-color: #fff;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    padding: 16px 20px;
+
+                    &.visible {
+                        display: flex;
+                    }
+                }
+                .search-btn--header {
+                    margin-right: 25px;
+
+                    svg {
+                        path {
+                            fill: $black;
+                        }
+                    }
+                }
+                .search-form {
+                    max-width: 100%;
+                    margin-right: 55px;
+
+                    &__close {
+                        position: relative;
+                        height: 18px;
+                        width: 18px;
+                    }
+                }
             }
         }
         .sub-header {

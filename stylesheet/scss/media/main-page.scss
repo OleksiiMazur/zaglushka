@@ -19,6 +19,9 @@
         min-height: 750px;
 
         &-menu {
+            height: 75px;
+            transition: height 0s 1.2s;
+
             &__list-wrap {
                 transform: translateY(-150%);
                 transition: transform 0.6s ease;
@@ -29,6 +32,10 @@
                 transition: transform 1s 0.5s ease;
             }
             &.opened {
+                z-index: 50;
+                height: 100%;
+                transition: height 0s;
+
                 .banner-menu__list-wrap {
                     transform: translateY(0);
                     transition: transform 1s 0.5s ease;
@@ -104,10 +111,14 @@
         height: 100%;
         width: 100%;
         overflow-y: auto;
+        visibility: hidden;
+        transition: visibility 0s 0.7s;
 
         .overlay {
-            z-index: 1;
-            position: absolute;
+            z-index: 0;
+            position: fixed;
+            opacity: 0;
+            visibility: hidden;
             left: 0;
             top: 0;
             right: 0;
@@ -115,34 +126,181 @@
             height: 100%;
             width: 100%;
             background-color: rgba(33, 33, 33, 0.9);
+            transition: opacity 0.5s ease, visibility 0s 0.5s;
         }
         .main-menu-wrap {
+            min-height: 560px;
+            position: relative;
+            height: 100%;
+            width: 247px;
             z-index: 50;
+            background-color: #fff;
+            padding: 31px 20px 35px;
+            transform: translateX(-105%);
+            transition: transform 0.7s ease;
 
-            .join-btn {}
+            .search-btn {
+                margin-bottom: 38px;
+                margin-left: auto;
+                max-width: 30px;
+
+                svg {
+                    path {
+                        fill: $black;
+                    }
+                }
+            }
+            .join-btn {
+                display: block;
+                font-family: Montserrat;
+                font-weight: 600;
+                font-size: 15px;
+                height: 46px;
+                line-height: 44px;
+                text-align: center;
+                width: 207px;
+                color: $black;
+                border: 1px solid $black;
+                border-radius: 3px;
+            }
             .main-menu {
+                margin-top: 35px;
+
                 li {
-                    a {}
+                    margin-bottom: 30px;
+
+                    a {
+                        font-family: Montserrat;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 15px;
+                        line-height: 18px;
+                        color: #212121;
+
+                        &:hover {
+                            color: $gold;
+                        }
+                    }
                 }
             }
             .socials {
+                position: absolute;
+                left: 20px;
+                bottom: 35px;
+
                 li {
+                    max-width: 20px;
+                    display: inline-block;
+                    margin-right: 5px;
+
                     a {
+                        opacity: 0.4;
+
                         svg {
-                            path {}
+                            max-width: 100%;
+
+                            path {
+                                fill: $black;
+                            }
+                        }
+
+                        &:hover {
+                            opacity: 1;
                         }
                     }
+                }
+            }
+        }
+
+        &.opened {
+            visibility: visible;
+            transition: visibility 0s;
+
+            .overlay {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 0.5s ease, visibility 0s;
+            }
+            .main-menu-wrap {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .banner {
+        &-menu {
+            position: absolute;
+            top: 0;
+            left: 20px;
+        }
+        &-content {
+            display: block;
+            width: 100%;
+            padding-top: 168px;
+
+            &__offer {
+                max-width: 660px;
+                margin: 0 auto;
+            }
+            &__subtitle {
+                max-width: 515px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .banner {
+        min-height: 980px;
+
+        &-menu {
+            &__btn {
+                width: 280px;
+
+                svg {
+                    margin-left: 102px;
+                }
+            }
+        }
+        &-content {
+            padding-top: 148px;
+
+            &__title {
+                font-size: 30px;
+                line-height: 37px;
+            }
+        }
+        .sign-up-form {
+            border-radius: 3px 3px 0 0;
+            background: #fff;
+            padding: 40px 20px 35px;
+
+            input {
+                max-width: 100%;
+                width: 100%;
+
+                &:first-child {
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+            }
+            button {
+                max-width: 100%;
+                width: 100%;
+
+                &:before, &:after {
+                    display: none;
+                    content: '';
                 }
             }
         }
     }
 }
 
-@media screen and (max-width:1023px) {
-}
-
-@media screen and (max-width:767px) {
-}
-
 @media screen and (max-width:480px) {
+    .banner {
+        min-height: 1050px;
+    }
 }
