@@ -1,0 +1,21 @@
+// site properties
+@import '../../abstracts/variables';
+// mixins
+@import '../../abstracts/mixins';
+
+@media screen and (max-width:1700px) {
+    .container {
+        max-width: 1360px;
+    }
+}
+
+@media screen and (max-width:1400px) {
+    .container {
+        max-width: 728px;
+    }
+}
+
+
+@media screen and (max-width:1400px) {
+
+}

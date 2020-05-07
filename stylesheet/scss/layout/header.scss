@@ -1,0 +1,262 @@
+// site properties
+@import '../abstracts/variables';
+// mixins
+@import '../abstracts/mixins';
+
+.header {
+    position: relative;
+    z-index: 10;
+
+    .main-header {
+        height: 80px;
+        padding: 14px 0;
+        background-color: #fff;
+
+        & > .container {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            display: block;
+            margin-right: 75px;
+        }
+        nav {
+            margin-right: 55px;
+
+            .hamburger {
+                display: none;
+            }
+            .main-manu {
+                display: flex;
+
+                li {
+                    a {
+                        font-family: Montserrat;
+                        font-weight: 500;
+                        font-size: 15px;
+                        line-height: 18px;
+                        color: #212121;
+
+                        &:hover {
+                            color: $gold;
+                        }
+                    }
+                    &:not(:last-child) {
+                        margin-right: 35px;
+                    }
+                }
+            }
+        }
+        .search-form {
+            margin-right: 55px;
+            max-width: 437px;
+            width: 100%;
+            height: 46px;
+            border-radius: 3px;
+            border: 1px solid #B6AF9A;
+            display: flex;
+            transition: border-color 0.2s ease;
+
+            input {
+                display: block;
+                width: 100%;
+                padding: 13px 25px;
+                border: none;
+                box-shadow: none;
+                outline: none;
+            }
+            button {
+                cursor: pointer;
+                position: relative;
+                display: block;
+                width: 68px;
+                background-color: transparent;
+                border: none;
+                box-shadow: none;
+                outline: none;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    height: calc(100% - 16px);
+                    left: 0;
+                    top: 8px;
+                    width: 1px;
+                    background-color: #B6AF9A;
+                }
+            }
+            &:hover, &:focus {
+                border-color: $black;
+
+                svg {
+                    path {
+                        fill: $black;
+                    }
+                }
+            }
+        }
+        .account {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+            color: #212121;
+            margin-right: 45px;
+
+            svg {
+                display: inline-block;
+                margin-right: 3px;
+                path {
+                    transition: fill 0.2s ease;
+                }
+            }
+            &:hover {
+                color: $gold;
+                transition: color 0.2s ease;
+
+                svg {
+                    path {
+                        fill: $gold;
+                    }
+                }
+            }
+        }
+        .join-btn {
+            display: inline-block;
+            font-family: Montserrat;
+            font-weight: 600;
+            font-size: 15px;
+            height: 46px;
+            line-height: 44px;
+            text-align: center;
+            width: 207px;
+            color: $black;
+            border: 1px solid $black;
+            border-radius: 3px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+
+            &:hover {
+                background-color: $black;
+                color: #fff;
+            }
+        }
+    }
+    .sub-header {
+        background-color: $black;
+        height: 46px;
+
+        .container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        .sub-menu {
+            display: flex;
+            align-items: center;
+
+            & > li {
+                position: relative;
+
+                &:not(:last-child) {
+                    margin-right: 35px;
+                }
+                a, span {
+                    display: block;
+                    font-family: Montserrat;
+                    font-weight: 500;
+                    line-height: 46px;
+                    font-size: 15px;
+                    color: #FFFFFF;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: $gold;
+                    }
+                }
+                & > span {
+                    cursor: context-menu;
+                    user-select: none;
+                }
+                &:hover {
+                    & > ul {
+                        opacity: 1;
+                        visibility: visible;
+                        transition: opacity 0.3s ease, visibility 0s ease;
+                    }
+                    & > span {
+                        color: $gold;
+                    }
+                }
+                & > ul {
+                    position: absolute;
+                    background-color: $black;
+                    border-top: 1px solid $gold;
+                    min-width: 178px;
+                    top: 100%;
+                    right: -10px;
+                    padding: 21px 30px;
+                    margin-bottom: 2px;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.3s 0.3s ease, visibility 0s 0.6s ease;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        bottom: calc(100% - 3px);
+                        right: 13px;
+                        width: 10px;
+                        height: 9px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
+                        background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.4143 3.07015e-06L10.3286 4.91431H0.5L5.4143 3.07015e-06Z' fill='%23D3B75E'/%3E%3C/svg%3E");
+                    }
+                    li {
+                        a {
+
+                        }
+                    }
+                }
+            }
+        }
+        .socials {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            margin-left: auto;
+            padding-left: 45px;
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 9px;
+                width: 1px;
+                height: 28px;
+                background-color: rgba(255, 255, 255, 0.3);;
+            }
+            li {
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+                a {
+                    opacity: 0.4;
+                    transition: opacity 0.2s ease;
+
+                    svg {
+                        path {
+                        }
+                    }
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import '../media/layout/header.scss';
